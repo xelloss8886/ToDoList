@@ -1,5 +1,7 @@
 package com.kakaopay.todolist.dto;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,13 +12,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ToDoDto {
+	
 	private String listId;
 
 	private String rootId;
 
 	private String parentId;
 
-	private List<String> todoReference;
+	private List<ToDoReference> todoReference;
 
 	private String todo;
 
@@ -24,6 +27,6 @@ public class ToDoDto {
 
 	private String lastModifiedAt;
 
-	private boolean isCompleted;
+	private Boolean isCompleted;
 
 }

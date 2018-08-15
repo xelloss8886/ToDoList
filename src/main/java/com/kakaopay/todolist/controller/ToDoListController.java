@@ -53,7 +53,7 @@ public class ToDoListController {
 		return toDoListService.modifyTodoListById(toDoDto);
 	}
 
-	@PatchMapping(value = "/todolists/{id}")
+	@PatchMapping(value = "/todolists/{id}/complete")
 	public ResponseObject modifyCompleteStatus(@PathVariable("id") String listId, @RequestBody ToDoDto toDoDto) {
 		return toDoListService.modifyCompleteStatus(listId, toDoDto);
 	}

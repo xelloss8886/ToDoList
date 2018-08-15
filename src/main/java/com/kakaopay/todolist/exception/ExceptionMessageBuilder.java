@@ -23,7 +23,8 @@ public class ExceptionMessageBuilder implements ResponseObject {
 	@Data
 	@NoArgsConstructor
 	@AllArgsConstructor
-	private class ChildNodes {
+	@Builder
+	public static class ChildNodes {
 		private String id;
 
 		private boolean isCompleted;

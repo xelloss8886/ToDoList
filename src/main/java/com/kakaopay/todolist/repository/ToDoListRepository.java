@@ -8,4 +8,6 @@ import com.kakaopay.todolist.entity.ToDoListEntity;
 
 public interface ToDoListRepository extends JpaRepository<ToDoListEntity, String> {
 	List<ToDoListEntity> findByParentId(String parentid);
+	
+	List<ToDoListEntity> findByRootIdOrderByListId(String rootId);
 }
