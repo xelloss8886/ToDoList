@@ -2,6 +2,7 @@ package com.kakaopay.todolist.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -54,7 +55,7 @@ public class ToDoListController {
 	}
 
 	@PatchMapping(value = "/todolists/{id}/complete")
-	public ResponseObject modifyCompleteStatus(@PathVariable("id") String listId, @RequestBody ToDoDto toDoDto) {
-		return toDoListService.modifyCompleteStatus(listId, toDoDto);
+	public ResponseEntity<?> modifyCompleteStatus(@PathVariable("id") String listId, @RequestBody ToDoDto toDoDto) {
+		return ResponseEntity.ok(toDoListService.modifyCompleteStatus(listId, toDoDto));
 	}
 }

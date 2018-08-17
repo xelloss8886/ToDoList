@@ -1,5 +1,6 @@
 package com.kakaopay.todolist.exception;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -10,8 +11,9 @@ import lombok.extern.slf4j.Slf4j;
 public class GlobalExceptionHandler {
 	
 	@ExceptionHandler(Throwable.class)
-	public void handlexception(Throwable e) {
+	public ResponseEntity<?> handlexception(Throwable e, ExceptionMessageBuilder b) {
 		log.error(e.getMessage(), e);
+		return ResponseEntity.badRequest().body(b);
 	}
 
 }
