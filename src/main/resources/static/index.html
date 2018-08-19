@@ -122,9 +122,9 @@
                     todoReference.push(todoReferenceElement);
                 }
 
-                var data = {'listId': listId, 'todo': todo, 'todoReference': todoReference};
+                var data = {'todo': todo, 'todoReference': todoReference};
                 console.log(listId);
-                modifyToDos(data);
+                modifyToDos(listId, data);
             }
         }
     }
@@ -233,9 +233,9 @@
         });
     }
 
-    function modifyToDos(data) {
+    function modifyToDos(listId, data) {
         $.ajax({
-            url: '/todolists',
+            url: '/todolists/'+listId,
             type: 'PUT',
             dataType: 'json',
             contentType: 'application/json',

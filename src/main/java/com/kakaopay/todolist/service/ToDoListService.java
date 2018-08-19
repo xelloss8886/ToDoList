@@ -81,7 +81,7 @@ public class ToDoListService {
         String todoReference = convertListToConcatedString(dto.getTodoReference());
         String parentId = dto.getListId();
         if(todoReference != null) {
-            parentId = Arrays.stream(todoReference.split("|")).sorted().findFirst().get();
+            parentId = Arrays.stream(todoReference.split("\\|")).sorted().findFirst().get();
         }
 
         ToDoListEntity entity = ToDoListEntity.builder()
@@ -108,7 +108,19 @@ public class ToDoListService {
                         .orElseThrow(() -> new NotFoundTodosException("ToDos in database is not founded. "))
                         .get();
 
-        List<ToDoListEntity> entities = toDoListRepository.findAllBiggerThan(listId);
+        String id = listId;
+        if(Optional.ofNullable(dto.getTodoReference()).isPresent()) {
+            Optional<ToDoReference> op = dto.getTodoReference()
+                    .stream()
+                    .sorted(Comparator.comparing(ToDoReference::getId))
+                    .findFirst();
+            if(op.isPresent()) {
+                id = op.get().getId();
+            }
+        }
+
+
+        List<ToDoListEntity> entities = toDoListRepository.findAllBiggerThan(id);
 
         Node startNode = treeMaker.createTreeFromEntity(entities);
         //recursive
@@ -132,6 +144,7 @@ public class ToDoListService {
         StringBuilder sb = new StringBuilder();
         while (listIt.hasNext()) {
             ToDoReference node = listIt.next();
+            if (node.getId() == null) return null;
             sb.append(node.getId().replaceAll("[^0-9]", ""));
             if (listIt.hasNext())
                 sb.append("|");

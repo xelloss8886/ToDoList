@@ -45,6 +45,13 @@ public class TreeMaker {
                 leftFirstNode = currentNode;
             }
         }
+        //XXX : logging
+        printTree(rootNode, "   ");
         return rootNode;
+    }
+
+    private <T> void printTree(Node node, String appender) {
+        log.info(appender + node.getId() + " " + node.getTodoReference() + " " + node.isCompleted());
+        node.getChildren().forEach(each -> printTree(each, appender + appender));
     }
 }

@@ -64,8 +64,9 @@ public class ToDoListController {
 	 * @param toDoDto
 	 * @return
 	 */
-	@PutMapping(value = "/todolists", produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseObject modifyTodoListById(@RequestBody ToDoDto toDoDto) {
+	@PutMapping(value = "/todolists/{listId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseObject modifyTodoListById(@PathVariable("listId") String listId, @RequestBody ToDoDto toDoDto) {
+	    toDoDto.setListId(listId);
 		return toDoListService.modifyTodoListById(toDoDto);
 	}
 
@@ -75,8 +76,8 @@ public class ToDoListController {
      * @param toDoDto
      * @return
      */
-	@PatchMapping(value = "/todolists/{id}/complete")
-	public ResponseEntity<?> modifyCompleteStatus(@PathVariable("id") String listId, @RequestBody ToDoDto toDoDto) {
+	@PatchMapping(value = "/todolists/{listId}/complete")
+	public ResponseEntity<?> modifyCompleteStatus(@PathVariable("listId") String listId, @RequestBody ToDoDto toDoDto) {
 		return ResponseEntity.ok(toDoListService.modifyCompleteStatus(listId, toDoDto));
 	}
 }
