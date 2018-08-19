@@ -46,25 +46,23 @@ $ ./startup.sh
   > GET /todolists
   > Response
   
-  | Property  |
-  |"content": [
-        {
-            "listId": String,
-            "todoReference": String,
-            "todo": String,
-            "createdAt": "yyyy-MM-dd HH:mm:ss",
-            "lastModifiedAt": "yyyy-MM-dd HH:mm:ss",
-            "completed": boolean
-        }|
+   | Property | Data Type | 
+  |:---------|:----------|
+  | listId  | String    | 
+  | todoReference | String |
+  | todo | String | 
+  | createdAt | String | 
+  | lastModifiedAt | String |
+  | completed | String |
   ----
   
   * 페이징 처리를 위한 count조회
   > GET /todolists/count
   > Response
   
-  {
-    "count" : Integer
-  }
+  |Property|Data Type|
+  |:-------|:---------|
+  |count|Integer|
   ----
 
 
