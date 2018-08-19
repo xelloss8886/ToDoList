@@ -46,7 +46,7 @@ $ ./startup.sh
   > GET /todolists
   
   **Response**
-  ```
+  
    | Property | Data Type | 
   |:---------|:----------|
   | listId  | String    | 
@@ -61,7 +61,7 @@ $ ./startup.sh
   > GET /todolists/count
   
   **Response**
-  ```
+  
   |Property|Data Type|
   |:-------|:---------|
   |count|Integer|
