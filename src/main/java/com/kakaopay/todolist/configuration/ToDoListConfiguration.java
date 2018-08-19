@@ -9,7 +9,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Configuration
 @EnableJpaRepositories(basePackages = { "com.kakaopay.todolist.repository" })
 public class ToDoListConfiguration {
-
 	@Bean
 	public ObjectMapper objectMapper() {
 		return new ObjectMapper();

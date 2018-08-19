@@ -2,17 +2,16 @@ package com.kakaopay.todolist.dto;
 
 import java.util.List;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class ToDoDto {
-	
+
 	private String listId;
 
 	private String rootId;
@@ -28,5 +27,7 @@ public class ToDoDto {
 	private String lastModifiedAt;
 
 	private Boolean isCompleted;
+
+	private Long count;
 
 }

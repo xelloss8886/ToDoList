@@ -16,30 +16,22 @@ public class Node {
 
 	private String parentId;
 
-	private String rootId;
-
 	private String id;
-	
+
 	private String todoReference;
-	
+
 	private boolean isCompleted;
-	
-	public Node(String parentId, String rootId, String id, String todoReference, boolean isCompleted) {
+
+	public Node(String parentId, String id, String todoReference, boolean isCompleted) {
 		this.parentId = parentId;
-		this.rootId = rootId;
 		this.id = id;
 		this.todoReference = todoReference;
 		this.isCompleted = isCompleted;
 	}
-	
+
 	public Node addChild(Node child) {
 		this.children.add(child);
 		return child;
-	}
-
-	public void addChildren(List<Node> children) {
-		children.forEach(each -> each.setParent(this));
-		this.children.addAll(children);
 	}
 
 	public void setParent(Node parent) {

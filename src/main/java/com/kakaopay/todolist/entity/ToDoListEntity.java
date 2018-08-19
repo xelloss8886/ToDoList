@@ -9,11 +9,8 @@ import javax.persistence.Table;
 
 import com.kakaopay.todolist.common.ResponseObject;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import org.hibernate.annotations.DynamicUpdate;
 
 @Getter
 @Setter
@@ -21,6 +18,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @Builder
 @Entity
+@DynamicUpdate
+@ToString
 @Table(name = "todolist")
 public class ToDoListEntity implements ResponseObject {
 
@@ -29,7 +28,7 @@ public class ToDoListEntity implements ResponseObject {
 	@Column(name = "listId")
 	private String listId;
 
-	@Column(name = "rootId")
+	@Column(name = "rootId", updatable = false)
 	private String rootId;
 
 	@Column(name = "parentId")
@@ -41,7 +40,7 @@ public class ToDoListEntity implements ResponseObject {
 	@Column(name = "todo")
 	private String todo;
 
-	@Column(name = "createdAt")
+	@Column(name = "createdAt", updatable = false)
 	private String createdAt;
 
 	@Column(name = "lastModifiedAt")
