@@ -44,7 +44,7 @@ $ ./startup.sh
   
   * 할일 목록 (페이징)
   > GET /todolists
-  > Response
+  **Response**
   
    | Property | Data Type | 
   |:---------|:----------|
@@ -58,7 +58,7 @@ $ ./startup.sh
   
   * 페이징 처리를 위한 count조회
   > GET /todolists/count
-  > Response
+  **Response**
   
   |Property|Data Type|
   |:-------|:---------|
