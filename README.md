@@ -46,7 +46,8 @@ $ ./startup.sh
   > GET /todolists
   > Response
   
-  "content": [
+  | Property  |
+  |"content": [
         {
             "listId": String,
             "todoReference": String,
@@ -54,7 +55,7 @@ $ ./startup.sh
             "createdAt": "yyyy-MM-dd HH:mm:ss",
             "lastModifiedAt": "yyyy-MM-dd HH:mm:ss",
             "completed": boolean
-        }
+        }|
   ----
   
   * 페이징 처리를 위한 count조회
